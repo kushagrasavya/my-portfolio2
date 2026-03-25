@@ -18,7 +18,6 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
       setCursorPos({ x, y });
     };
 
-    // --- FIX: Determine the object-fit class based on the project data ---
     const imageFitClass = project.containImage ? "object-contain" : "object-cover";
 
     return (
@@ -48,11 +47,8 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
             </div>
 
             {/* Inner Video/Image Frame */}
-            {/* FIX: Removed bg-[#080807] so the empty space is transparent */}
             <div className="relative z-10 aspect-[4/3] w-full overflow-clip rounded-lg shadow-2xl cursor-none bg-transparent">
               
-              {/* --- INDIVIDUAL PROJECT VIDEO OR IMAGE --- */}
-              {/* FIX: Removed bg-[#1a1a1a] so it shows the ambient background behind fitted images */}
               <div className="w-full h-full bg-transparent transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
                 {project.innerVideo ? (
                   <video 
@@ -238,18 +234,29 @@ export default function Works() {
           ref={headerRef} 
           className="flex flex-wrap text-[14vw] md:text-[8vw] font-bold tracking-tighter text-[#d1d1c7] leading-[0.9] uppercase"
         >
-          {headerText.split("").map((char, index) => (
-            <span key={index} className="overflow-hidden inline-block relative pb-2">
-              <span
-                className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  isHeaderVisible ? "translate-y-0" : "translate-y-[110%]"
-                }`}
-                style={{ transitionDelay: `${index * 30}ms` }}
-              >
-                {char === " " ? "\u00A0" : char}
+          {/* FIX: Replaced the space rendering with a forced line-break for mobile */}
+          {headerText.split("").map((char, index) => {
+            if (char === " ") {
+              return (
+                <span 
+                  key={index} 
+                  className="basis-full h-0 md:basis-auto md:h-auto md:w-[2.5vw]" 
+                />
+              );
+            }
+            return (
+              <span key={index} className="overflow-hidden inline-block relative pb-2">
+                <span
+                  className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isHeaderVisible ? "translate-y-0" : "translate-y-[110%]"
+                  }`}
+                  style={{ transitionDelay: `${index * 30}ms` }}
+                >
+                  {char}
+                </span>
               </span>
-            </span>
-          ))}
+            );
+          })}
         </h2>
 
         <div className="w-full flex md:grid md:grid-cols-12 justify-end">

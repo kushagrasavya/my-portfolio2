@@ -95,13 +95,14 @@ export default function Contact() {
           <div id="Contact" className="w-full max-w-4xl mx-auto flex flex-col md:flex-row justify-between md:justify-around gap-16 relative z-10 px-8 sm:px-12 py-12 md:py-20 rounded-2xl backdrop-blur-2xl bg-white/[0.03] border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
             
             {/* Email Block */}
-            <div className="flex flex-col gap-y-6">
+            <div className="flex flex-col gap-y-6 max-w-full">
               <span className="text-sm font-bold tracking-widest uppercase text-[#a9a9a9]">
                 Direct Email
               </span>
+              {/* FIX: Removed the invalid inline comment and added break-all */}
               <a 
-                href="mailto:contact@zunedaalim.com" 
-                className="relative w-fit text-[#efeee9] hover:text-[#c4ef81] font-mono text-lg md:text-2xl transition-colors duration-300 pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#c4ef81] after:transition-all after:duration-500 hover:after:w-full"
+                href="mailto:kushagrasavya.choudhary@gmail.com" 
+                className="relative w-fit max-w-full break-all text-[#efeee9] hover:text-[#c4ef81] font-mono text-sm sm:text-base md:text-2xl transition-colors duration-300 pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-[#c4ef81] after:transition-all after:duration-500 hover:after:w-full"
               >
                 kushagrasavya.choudhary@gmail.com
               </a>

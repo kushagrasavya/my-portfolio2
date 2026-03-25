@@ -87,7 +87,7 @@ export default function Services() {
         </div>
       </div>
 
-      {/* --- STICKY CARDS (Untouched) --- */}
+      {/* --- STICKY CARDS --- */}
       <div className="flex flex-col bg-[#080807]">
 
         {/* CARD 01 - Now Growth & Marketing */}
@@ -95,9 +95,12 @@ export default function Services() {
           className="sticky border-t border-[#393632] bg-[#080807]"
           style={{ top: "20vh", marginBottom: "21em", zIndex: 10 }}
         >
-          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 h-[100px]">
-            <span className="col-span-2 text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(01)</span>
-            <h3 className="col-span-8 md:col-start-6 text-3xl md:text-5xl font-semibold tracking-tighter text-[#bfbfb1] whitespace-nowrap">
+          {/* FIX: Changed h-[100px] to min-h-[100px] py-6 md:py-0 */}
+          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 min-h-[100px] py-6 md:py-0">
+            {/* FIX: Scaled mobile text down slightly */}
+            <span className="col-span-2 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(01)</span>
+            {/* FIX: Changed whitespace-nowrap to whitespace-normal md:whitespace-nowrap */}
+            <h3 className="col-span-8 md:col-start-6 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#bfbfb1] whitespace-normal md:whitespace-nowrap leading-tight">
               Growth & Marketing
             </h3>
           </div>
@@ -123,9 +126,9 @@ export default function Services() {
           className="sticky border-t border-[#393632] bg-[#080807]"
           style={{ top: "calc(20vh + 100px)", marginBottom: "15em", zIndex: 20 }}
         >
-          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 h-[100px]">
-            <span className="col-span-2 text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(02)</span>
-            <h3 className="col-span-8 md:col-start-6 text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7] whitespace-nowrap">
+          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 min-h-[100px] py-6 md:py-0">
+            <span className="col-span-2 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(02)</span>
+            <h3 className="col-span-8 md:col-start-6 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7] whitespace-normal md:whitespace-nowrap leading-tight">
               Product Analytics & Data Visualization
             </h3>
           </div>
@@ -151,9 +154,9 @@ export default function Services() {
           className="sticky border-t border-[#393632] bg-[#080807]"
           style={{ top: "calc(20vh + 200px)", marginBottom: "10em", zIndex: 30 }}
         >
-          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 h-[100px]">
-            <span className="col-span-2 text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(03)</span>
-            <h3 className="col-span-8 md:col-start-6 text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7] whitespace-nowrap">
+          <div className="flex md:grid md:grid-cols-12 items-center gap-x-4 min-h-[100px] py-6 md:py-0">
+            <span className="col-span-2 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7]">(03)</span>
+            <h3 className="col-span-8 md:col-start-6 text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tighter text-[#d1d1c7] whitespace-normal md:whitespace-nowrap leading-tight">
               Full-Stack Development
             </h3>
           </div>
@@ -163,7 +166,7 @@ export default function Services() {
                 From frontend interactions to backend APIs, I build complete web solutions. I work with modern stacks to deliver apps that are scalable, maintainable, and ready for real-world users.
               </p>
               <div className="flex flex-col divide-y divide-[#393632]">
-                {["React, Node.js, NextJs", "REST APIs, ", "Git, GitHub, Postman"].map((item, j) => (
+                {["React, Node.js, NextJs", "REST APIs", "Git, GitHub, Postman"].map((item, j) => (
                   <span key={j} className="flex items-center gap-6 py-3 md:py-5 text-lg md:text-2xl font-bold text-[#bfbfb1]">
                     <span className="font-mono text-sm text-[#7e766c] font-normal">{String(j+1).padStart(2,"0")}</span>
                     {item}
