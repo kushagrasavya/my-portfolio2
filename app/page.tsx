@@ -1,6 +1,7 @@
 // Notice: NO curly braces around the component names!
 import Hero from "@/components/Hero"; // Assuming you have a Hero component here
 import Services from "@/components/Services";
+import Experience from "@/components/Experience";
 import Works from "@/components/Works";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="w-full min-h-screen bg-[#efeee9]">
       <Hero />
       <Services />
+      <Experience />
       <Works />
       <About />
       <Contact />

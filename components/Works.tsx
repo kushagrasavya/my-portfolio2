@@ -7,7 +7,7 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
   ({ project, index }, ref) => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
-    
+
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -24,19 +24,19 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
       <div
         key={index}
         data-index={index}
-        ref={ref} 
+        ref={ref}
         className="group cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseMove={handleMouseMove}
       >
         <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full">
-          
-          <div 
-            ref={containerRef} 
+
+          <div
+            ref={containerRef}
             className="relative mt-5 flex aspect-square items-center justify-center overflow-clip rounded-xl bg-[#141414] p-6 sm:p-10 xl:p-16 transition-transform duration-500 group-hover:scale-[0.98]"
           >
-            
+
             {/* Ambient Background Image */}
             <div className="absolute inset-0 w-full h-full opacity-30">
               <img
@@ -48,21 +48,21 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
 
             {/* Inner Video/Image Frame */}
             <div className="relative z-10 aspect-[4/3] w-full overflow-clip rounded-lg shadow-2xl cursor-none bg-transparent">
-              
+
               <div className="w-full h-full bg-transparent transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
                 {project.innerVideo ? (
-                  <video 
-                    src={project.innerVideo} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
+                  <video
+                    src={project.innerVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className={`w-full h-full ${imageFitClass}`}
                   />
                 ) : project.innerImage ? (
-                  <img 
-                    src={project.innerImage} 
-                    alt={project.title} 
+                  <img
+                    src={project.innerImage}
+                    alt={project.title}
                     className={`w-full h-full ${imageFitClass}`}
                   />
                 ) : (
@@ -71,16 +71,15 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
                   </div>
                 )}
               </div>
-              
+
               {/* --- MOUSE FOLLOWING "View" BUTTON --- */}
-              <div 
-                className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ease-in-out ${
-                  isHovered ? "opacity-100" : "opacity-0"
-                }`}
+              <div
+                className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ease-in-out ${isHovered ? "opacity-100" : "opacity-0"
+                  }`}
               >
-                <div 
+                <div
                   className="absolute w-20 h-20 md:w-24 md:h-24 bg-white/30 border border-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-[#080807] font-medium text-sm md:text-base shadow-lg flex-shrink-0"
-                  style={{ 
+                  style={{
                     transform: `translate(calc(${cursorPos.x}px - 50%), calc(${cursorPos.y}px - 50%)) scale(${isHovered ? 1 : 0.5})`,
                     transition: 'opacity 0.5s, transform 0.15s ease-out, scale 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
                   }}
@@ -98,7 +97,7 @@ const ProjectCard = forwardRef<HTMLDivElement, { project: any; index: number }>(
               <span className="font-mono text-sm font-medium text-[#7e766c]">
                 {project.subtitle}
               </span>
-              
+
               <div className="w-fit text-3xl font-semibold text-[#d1d1c7] group-hover:text-[#c4ef81] transition-colors duration-300">
                 <h3 className="font-mono cursor-default">
                   {project.title}
@@ -128,7 +127,7 @@ ProjectCard.displayName = "ProjectCard";
 export default function Works() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  
+
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLHeadingElement>(null);
 
@@ -139,8 +138,8 @@ export default function Works() {
       category: "Marketing",
       year: "2025",
       bgImage: "https://res.cloudinary.com/dnocsf5bq/image/upload/g_auto/v1/6_jugckf?_a=BAVAZGE70",
-      innerVideo: "/ignatius.mp4", 
-      innerImage: "", 
+      innerVideo: "/ignatius.mp4",
+      innerImage: "",
       link: "https://www.instagram.com/reel/DGHfLOyMeGj/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
     },
     {
@@ -149,29 +148,29 @@ export default function Works() {
       category: "Story Telling",
       year: "2025",
       bgImage: "https://res.cloudinary.com/dnocsf5bq/image/upload/g_auto/v1/3_nzf5vb?_a=BAVAZGE70",
-      innerVideo: "/personal.mp4", 
-      innerImage: "", 
+      innerVideo: "/personal.mp4",
+      innerImage: "",
       link: "https://www.instagram.com/reel/DK1QEaUMYOo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     },
-     {
+    {
       title: "Viral Content Creation",
       subtitle: "skilling up",
       category: "Marketing",
       year: "2026",
       bgImage: "https://res.cloudinary.com/dnocsf5bq/image/upload/g_auto/v1/2_frjjt5?_a=BAVAZGE70",
-      innerVideo: "", 
-      innerImage: "/img30.jpeg", 
-      containImage: true, 
+      innerVideo: "",
+      innerImage: "/img30.jpeg",
+      containImage: true,
     },
-      {
+    {
       title: "Spotify Clone",
       subtitle: "Frontend Architecture Concept",
       category: "Development",
       year: "2025",
       bgImage: "https://res.cloudinary.com/dnocsf5bq/image/upload/g_auto/v1/1_phf5ng?_a=BAVAZGE70",
-      innerVideo: "", 
-      innerImage: "/img7.png", 
-      containImage: true, 
+      innerVideo: "",
+      innerImage: "/spotify.png",
+      containImage: true,
     },
     {
       title: "Cybersecurity",
@@ -179,8 +178,8 @@ export default function Works() {
       category: "Development",
       year: "2025",
       bgImage: "https://res.cloudinary.com/dnocsf5bq/image/upload/g_auto/v1/7_lfufd9?_a=BAVAZGE70",
-      innerVideo: "", 
-      innerImage: "/img6.png", 
+      innerVideo: "",
+      innerImage: "/img6.png",
     },
 
   ];
@@ -195,7 +194,7 @@ export default function Works() {
           }
         });
       },
-      { rootMargin: "-40% 0px -60% 0px" } 
+      { rootMargin: "-40% 0px -60% 0px" }
     );
 
     projectRefs.current.forEach((ref) => {
@@ -227,29 +226,28 @@ export default function Works() {
 
   return (
     <section id="Works" className="relative w-full bg-[#080807] text-[#efeee9] px-4 py-24 md:px-10">
-      
+
       {/* --- HEADER AREA --- */}
       <div className="flex flex-col gap-y-12 md:gap-y-24 mb-20 md:mb-32">
-        <h2 
-          ref={headerRef} 
+        <h2
+          ref={headerRef}
           className="flex flex-wrap text-[14vw] md:text-[8vw] font-bold tracking-tighter text-[#d1d1c7] leading-[0.9] uppercase"
         >
           {/* FIX: Replaced the space rendering with a forced line-break for mobile */}
           {headerText.split("").map((char, index) => {
             if (char === " ") {
               return (
-                <span 
-                  key={index} 
-                  className="basis-full h-0 md:basis-auto md:h-auto md:w-[2.5vw]" 
+                <span
+                  key={index}
+                  className="basis-full h-0 md:basis-auto md:h-auto md:w-[2.5vw]"
                 />
               );
             }
             return (
               <span key={index} className="overflow-hidden inline-block relative pb-2">
                 <span
-                  className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isHeaderVisible ? "translate-y-0" : "translate-y-[110%]"
-                  }`}
+                  className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHeaderVisible ? "translate-y-0" : "translate-y-[110%]"
+                    }`}
                   style={{ transitionDelay: `${index * 30}ms` }}
                 >
                   {char}
@@ -264,19 +262,18 @@ export default function Works() {
             <span className="font-mono text-sm md:text-base uppercase text-[#7e766c] mt-2">
               (PROJECTS)
             </span>
-            
+
             <div className="text-lg md:text-[1.5rem] font-medium leading-snug text-[#a9a9a9] max-w-[30ch]">
               <div className="flex flex-wrap overflow-hidden">
                 {summaryText.split(" ").map((word, index) => {
-                  const baseDelay = headerText.length * 30; 
+                  const baseDelay = headerText.length * 30;
                   const wordDelay = baseDelay + (index * 15);
 
                   return (
                     <span key={index} className="overflow-hidden inline-block relative pr-2 pb-1">
                       <span
-                        className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isHeaderVisible ? "translate-y-0" : "translate-y-[120%]"
-                        }`}
+                        className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHeaderVisible ? "translate-y-0" : "translate-y-[120%]"
+                          }`}
                         style={{ transitionDelay: `${wordDelay}ms` }}
                       >
                         {word}
@@ -293,11 +290,11 @@ export default function Works() {
 
       {/* --- PROJECTS GRID --- */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 w-full pt-8 md:pt-12">
-        
+
         {/* LEFT: Sticky Slot Machine Number */}
         <div className="hidden md:flex col-span-5 sticky top-32 h-[0.8em] overflow-hidden text-[22vw] font-normal leading-[0.8] text-[#7e766c] tracking-tighter">
           <span>0</span>
-          <div 
+          <div
             className="flex flex-col transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
             style={{ transform: `translateY(calc(-${activeIndex} * 0.8em))` }}
           >
@@ -327,3 +324,4 @@ export default function Works() {
     </section>
   );
 }
+
