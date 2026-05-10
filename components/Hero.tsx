@@ -117,7 +117,7 @@ export default function Hero() {
           <nav className="mt-4 md:mt-0">
             <ul className="flex flex-wrap gap-4 md:gap-8 text-gray-600 font-medium text-sm md:text-base">
               {/* Added Anchor Tags with dynamic href based on the item name */}
-              {['Services', 'Works', 'About', 'Contact'].map((item) => (
+              {['Services', 'Experience', 'Works', 'About', 'Contact'].map((item) => (
                 <li key={item} className="cursor-pointer">
                   <a href={`#${item}`} className="group relative block h-fit overflow-hidden">
                     <span className="block w-full transition-transform duration-[0.4s] ease-[cubic-bezier(.51,.92,.24,1.15)] translate-y-0 group-hover:-translate-y-full">
